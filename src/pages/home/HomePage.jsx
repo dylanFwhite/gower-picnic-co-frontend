@@ -1,11 +1,10 @@
-import { useLoaderData } from "react-router-dom"
-import useBasket from "../../customHooks/useBasket"
+import { useLoaderData } from "react-router-dom";
+import useBasket from "../../customHooks/useBasket";
 
 function HomePage() {
-  const basket = useBasket()
+  const basket = useBasket();
 
-  const products = useLoaderData()
-  console.log(products)
+  const products = useLoaderData();
 
   return (
     <div>
@@ -13,7 +12,7 @@ function HomePage() {
       <p>Products: {products.length}</p>
       <p>Basket Items: {basket.length}</p>
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
