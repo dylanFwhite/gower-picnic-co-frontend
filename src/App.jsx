@@ -1,47 +1,81 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import Root from "./pages/Root"
-import HomePage from "./pages/home/HomePage"
-import ShopPage from "./pages/ShopPage"
-import RecipePage from "./pages/RecipePage"
-import AboutPage from "./pages/AboutPage"
-import ProductPage from "./pages/ProductPage"
-import { homeLoader } from "./pages/home/homeLoader"
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import Root from "./pages/Root";
+import HomePage from "./pages/home/HomePage";
+import ShopPage from "./pages/ShopPage";
+import RecipePage from "./pages/RecipePage";
+import AboutPage from "./pages/AboutPage";
+import ProductPage from "./pages/ProductPage";
+import { homeLoader } from "./pages/home/homeLoader";
+import BasketPage from "./pages/BasketPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import PaymentStatus from "./components/PaymentStatus";
+
+import "./App.css";
+import CheckoutForm from "./components/CheckoutForm";
+import CustomerForm from "./components/CustomerForm";
+import BasketList from "./components/BasketList";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Root />,
     children: [
       {
         index: true,
         element: <HomePage />,
-        loader: homeLoader
+        loader: homeLoader,
       },
       {
         path: "/shop",
-        element: <ShopPage />
+        element: <ShopPage />,
       },
       {
         path: "/recipes",
-        element: <RecipePage />
+        element: <RecipePage />,
       },
       {
         path: "/about",
-        element: <AboutPage />
+        element: <AboutPage />,
       },
       {
         path: "/product",
-        element: <ProductPage />
-      }
-    ]
-  }
-])
+        element: <ProductPage />,
+      },
+      {
+        path: "/checkout",
+        element: <BasketPage />,
+        children: [
+          {
+            index: true,
+            element: <BasketList />,
+          },
+          {
+            path: "customer",
+            element: <CustomerForm />,
+          },
+          {
+            path: "payment",
+            element: <CheckoutPage />,
+            children: [
+              {
+                index: true,
+                element: <CheckoutForm />,
+              },
+              {
+                path: "confirmation",
+                element: <PaymentStatus />,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]);
 
 function App() {
-
-  return (
-    <RouterProvider router={router} />
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
