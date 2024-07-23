@@ -96,6 +96,7 @@ export default function Header() {
               <BasketListSmall
                 basket={basket}
                 removeBasketItem={basket.removeBasketItem}
+                handleClickCheckout={() => setShowDropdown(!showDropdown)}
               />
             </div>
           </div>

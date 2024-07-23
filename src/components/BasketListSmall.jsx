@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import BasketItemSmall from "./BasketItemSmall";
 
-function BasketListSmall({ basket, removeBasketItem }) {
+function BasketListSmall({ basket, removeBasketItem, handleClickCheckout }) {
   if (basket.basketItems.length === 0) {
     return (
       <div className="p-4">
@@ -12,7 +12,7 @@ function BasketListSmall({ basket, removeBasketItem }) {
           No Items in the basket
         </p>
         <button className="rounded h-8 w-32 bg-sandal-yellow hover:bg-amber-200">
-          <Link to="/picnic">
+          <Link to="/picnics">
             <span
               style={{ fontFamily: "Roboto" }}
               className="text-white font-light text-md"
@@ -40,7 +40,10 @@ function BasketListSmall({ basket, removeBasketItem }) {
   return (
     <div className="flex flex-col">
       {basketList}
-      <button className="rounded h-8 w-32 bg-sandal-yellow hover:bg-amber-200 mx-auto my-4">
+      <button
+        className="rounded h-8 w-32 bg-sandal-yellow hover:bg-amber-200 mx-auto my-4"
+        onClick={handleClickCheckout}
+      >
         <Link to="/checkout">
           <span
             style={{ fontFamily: "Roboto" }}
