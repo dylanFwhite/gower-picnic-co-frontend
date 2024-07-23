@@ -2,9 +2,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Root from "./pages/Root";
 import HomePage from "./pages/home/HomePage";
-import ShopPage from "./pages/ShopPage";
-import RecipePage from "./pages/RecipePage";
-import AboutPage from "./pages/AboutPage";
+import PicnicsPage from "./pages/PicnicsPage";
+import HamperPage from "./pages/HamperPage";
+import StorePage from "./pages/StorePage";
 import ProductPage from "./pages/ProductPage";
 import { homeLoader } from "./pages/home/homeLoader";
 import BasketPage from "./pages/BasketPage";
@@ -12,6 +12,10 @@ import CheckoutPage from "./pages/CheckoutPage";
 import PaymentStatus from "./components/PaymentStatus";
 
 import "./App.css";
+import "@fontsource/roboto"; // Defaults to weight 400
+import "@fontsource/roboto/100.css"; // Specify weight
+import "@fontsource/roboto/100-italic.css"; // Specify weight and style
+
 import CheckoutForm from "./components/CheckoutForm";
 import CustomerForm from "./components/CustomerForm";
 import BasketList from "./components/BasketList";
@@ -27,16 +31,16 @@ const router = createBrowserRouter([
         loader: homeLoader,
       },
       {
-        path: "/shop",
-        element: <ShopPage />,
+        path: "/picnics",
+        element: <PicnicsPage />,
       },
       {
-        path: "/recipes",
-        element: <RecipePage />,
+        path: "/store",
+        element: <StorePage />,
       },
       {
-        path: "/about",
-        element: <AboutPage />,
+        path: "/hamper",
+        element: <HamperPage />,
       },
       {
         path: "/product",
