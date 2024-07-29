@@ -79,7 +79,7 @@ function HomePage() {
         <div className="absolute top-16 left-3 md:top-36 lg:top-36 xl:top-52">
           <h1
             style={{ fontFamily: "Roboto" }}
-            className=" text-white Roboto text-xl md:text-4xl lg:text-6xl font-normal"
+            className=" text-white Roboto text-xl md:text-4xl lg:text-6xl font-normal uppercase"
           >
             The Gower Picnic Company
           </h1>
@@ -139,20 +139,22 @@ function HomePage() {
       {/* Product Slider */}
       <div className="bg-white w-full h-full flex flex-col">
         <div className="mx-auto flex flex-col items-center mt-8">
-          <h1
-            style={{
-              fontFamily: "Roboto",
-            }}
-            className="text-2xl font-thin text-sandal-yellow"
-          >
-            Products
-          </h1>
           <p
             style={{ fontFamily: "Roboto", color: "#5C5C5C" }}
             className="font-light mt-3 text-center md:px-20 lg:px-32"
           >
-            A few of our favourite things for al fresco dining and more...
+            Some of our Favourites
           </p>
+          <h1
+            style={{
+              fontFamily: "Roboto",
+              color: "#686262",
+            }}
+            className="text-2xl font-normal mb-2 tracking-wider"
+          >
+            FEATURED PRODUCTS
+          </h1>
+          <hr className="border-sandal-yellow w-24" />
         </div>
         <ProductCarousel
           products={products}
@@ -161,6 +163,9 @@ function HomePage() {
           handleClickLeft={handleProductClickLeft}
           handleClickRight={handleProductClickRight}
         />
+      </div>
+      <div className="bg-sandal-yellow w-full h-24 flex flex-col">
+        <h1 className="mx-auto my-4 text-white">CONTACT US</h1>
       </div>
     </>
   );

@@ -13,7 +13,7 @@ function ProductCarouselItem({ product }) {
           fontFamily: "Roboto",
           color: "#5C5C5C",
         }}
-        className="text-lg font-normal"
+        className="text-lg font-normal uppercase  tracking-wide"
       >
         {product.name}
       </h2>
