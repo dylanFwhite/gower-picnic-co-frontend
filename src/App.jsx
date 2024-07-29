@@ -2,10 +2,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Root from "./pages/Root";
 import HomePage from "./pages/home/HomePage";
-import PicnicsPage from "./pages/PicnicsPage";
-import HamperPage from "./pages/HamperPage";
-import StorePage from "./pages/StorePage";
 import ProductPage from "./pages/ProductPage";
+import ShopPage from "./pages/ShopPage";
 import { homeLoader } from "./pages/home/homeLoader";
 import BasketPage from "./pages/BasketPage";
 import CheckoutPage from "./pages/CheckoutPage";
@@ -31,20 +29,12 @@ const router = createBrowserRouter([
         loader: homeLoader,
       },
       {
-        path: "/picnics",
-        element: <PicnicsPage />,
-      },
-      {
-        path: "/store",
-        element: <StorePage />,
-      },
-      {
-        path: "/hamper",
-        element: <HamperPage />,
-      },
-      {
-        path: "/product",
+        path: "/products",
         element: <ProductPage />,
+      },
+      {
+        path: "/shop",
+        element: <ShopPage />,
       },
       {
         path: "/checkout",
