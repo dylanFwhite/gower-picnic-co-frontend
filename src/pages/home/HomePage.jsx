@@ -45,7 +45,6 @@ function HomePage() {
     setProductIndex([productIndex[0] + 1, productIndex[1] + 1]);
   };
   const handleProductClickLeft = () => {
-    console.log(productIndex);
     if (productIndex[0] === 0)
       return setProductIndex([nProducts - 1, productIndex[1] - 1]);
     if (productIndex[1] === 0)

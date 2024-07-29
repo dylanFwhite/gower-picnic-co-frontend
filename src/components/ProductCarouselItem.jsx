@@ -15,18 +15,18 @@ function ProductCarouselItem({ product }) {
         }}
         className="text-lg font-normal uppercase  tracking-wide"
       >
-        {product.name}
+        {product && product.name}
       </h2>
       <p
         style={{ fontFamily: "Roboto", color: "#5C5C5C" }}
         className="font-thin mt-3 text-center max-w-96"
       >
-        {product.description}
+        {product && product.description}
       </p>
-      <button className="rounded h-8 w-24 bg-sandal-yellow hover:bg-amber-200 mt-auto">
-        <Link to={`product?id=${product._id}`}>
+      <button className="h-10 w-24 border border-sandal-yellow bg-none hover:bg-amber-200 mt-auto">
+        <Link to="/shop">
           <span
-            style={{ fontFamily: "Roboto" }}
+            style={{ fontFamily: "Roboto", color: "#6F6D6D" }}
             className="text-white font-light text-md"
           >
             Shop Now
