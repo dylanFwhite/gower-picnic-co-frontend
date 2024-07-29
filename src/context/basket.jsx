@@ -10,6 +10,11 @@ function BasketProvider({ children }) {
   const addBasketItem = (product) => {
     setBasketItems([...basketItems, product]);
   };
+
+  const addBasketItems = (products) => {
+    setBasketItems([...basketItems, ...products]);
+  };
+
   const removeBasketItem = (ind) => {
     setBasketItems(basketItems.filter((item, index) => index !== ind));
   };
@@ -17,6 +22,7 @@ function BasketProvider({ children }) {
   const basket = {
     basketItems,
     addBasketItem,
+    addBasketItems,
     removeBasketItem,
     orderDate,
     setOrderDate,
