@@ -47,7 +47,7 @@ function PicnicCarousel({
               anim id est laborum.
             </p>
             <button className="rounded h-8 w-24 bg-sandal-yellow hover:bg-amber-200">
-              <Link to={`hamper?id=${picnics[picnicIndex]._id}`}>
+              <Link to={`products?id=${picnics[picnicIndex]._id}`}>
                 <span
                   style={{ fontFamily: "Roboto" }}
                   className="text-white font-light text-md"

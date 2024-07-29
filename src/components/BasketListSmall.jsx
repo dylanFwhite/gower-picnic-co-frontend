@@ -12,7 +12,7 @@ function BasketListSmall({ basket, removeBasketItem, handleClickCheckout }) {
           No Items in the basket
         </p>
         <button className="rounded h-8 w-32 bg-sandal-yellow hover:bg-amber-200">
-          <Link to="/picnics">
+          <Link to="/shop">
             <span
               style={{ fontFamily: "Roboto" }}
               className="text-white font-light text-md"
