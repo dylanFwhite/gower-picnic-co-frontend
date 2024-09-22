@@ -3,6 +3,10 @@
   align-items: center;
 }
 
+.bg-gray {
+  background: #f9f9f9;
+}
+
 #payment-form {
   width: 30vw;
   min-width: 500px;

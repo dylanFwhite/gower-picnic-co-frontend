@@ -8,6 +8,7 @@ function PicnicCarousel({
   handleClickLeft,
   handleClickRight,
 }) {
+  console.log(picnics);
   const pearlChain = picnics.map((el, ind) => {
     let col = "text-xs text-gray-300";
     if (ind === picnicIndex) col = "text-xs text-gray-600";
@@ -34,20 +35,24 @@ function PicnicCarousel({
               }}
               className="text-2xl font-thin text-sandal-yellow"
             >
-              {picnics[picnicIndex].name}
+              {picnics[picnicIndex] && picnics[picnicIndex].name}
             </h1>
             <p
               style={{ fontFamily: "Roboto", color: "#5C5C5C" }}
               className="font-light"
             >
-              {picnics[picnicIndex].description}
+              {picnics[picnicIndex] && picnics[picnicIndex].summary}
               <br />
               cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
               cupidatat non proident, sunt in culpa qui officia deserunt mollit
               anim id est laborum.
             </p>
             <button className=" h-8 w-32 bg-sandal-yellow hover:bg-amber-200">
-              <Link to={`products?id=${picnics[picnicIndex]._id}`}>
+              <Link
+                to={`products?id=${
+                  picnics[picnicIndex] && picnics[picnicIndex]._id
+                }`}
+              >
                 <span
                   style={{ fontFamily: "Roboto" }}
                   className="text-white font-light text-md"

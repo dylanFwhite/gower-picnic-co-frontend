@@ -13,10 +13,16 @@ import "./App.css";
 import "@fontsource/roboto"; // Defaults to weight 400
 import "@fontsource/roboto/100.css"; // Specify weight
 import "@fontsource/roboto/100-italic.css"; // Specify weight and style
+import "rsuite/Calendar/styles/index.css";
+import "rsuite/Input/styles/index.css";
+import "rsuite/DateInput/styles/index.css";
+import "rsuite/InputGroup/styles/index.css";
+import "rsuite/SelectPicker/styles/index.css";
+import "rsuite/Dropdown/styles/index.css";
 
 import CheckoutForm from "./components/CheckoutForm";
 import CustomerForm from "./components/CustomerForm";
-import BasketList from "./components/BasketList";
+import ArrangementForm from "./components/ArrangementForm";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +48,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <BasketList />,
+            element: <ArrangementForm />,
           },
           {
             path: "customer",

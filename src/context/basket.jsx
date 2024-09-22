@@ -4,7 +4,7 @@ const BasketContext = createContext();
 
 function BasketProvider({ children }) {
   const [basketItems, setBasketItems] = useState([]);
-  const [orderDate, setOrderDate] = useState(new Date("2024-06-30"));
+  const [orderDate, setOrderDate] = useState(null);
   const [orderComment, setOrderComment] = useState("");
 
   const addBasketItem = (product) => {

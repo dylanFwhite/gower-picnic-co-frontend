@@ -8,6 +8,7 @@ export default {
       },
       maxHeight: {
         700: "700px",
+        600: "600px",
       },
       height: {
         700: "700px",

@@ -93,6 +93,17 @@ export default function Header() {
               }}
             ></div>
             <div className="bg-white text-black shadow-xl rounded-md mt-3 max-h-96 overflow-auto">
+              <div className="ml-4 py-2">
+                <h1
+                  style={{
+                    fontFamily: "Roboto",
+                    color: "#686262",
+                  }}
+                  className="text-xl font-normal tracking-wider"
+                >
+                  BASKET
+                </h1>
+              </div>
               <BasketListSmall
                 basket={basket}
                 removeBasketItem={basket.removeBasketItem}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getProducts } from "../api/getProducts";
 
 import ProductCarousel from "../components/ProductCarousel";
+import PicnicCarouselLarge from "../components/PicnicCarouselLarge";
 
 function ProductPage() {
   // Product Loader
@@ -13,7 +14,20 @@ function ProductPage() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Picnic carousel
+  const [picnicIndex, setPicnicIndex] = useState(0);
   const picnics = productsAll.filter((prod) => prod.type === "picnic");
+  const nPicnics = picnics.length;
+
+  const handlePicnicClickRight = () => {
+    if (picnicIndex === nPicnics - 1) return setPicnicIndex(0);
+    setPicnicIndex(picnicIndex + 1);
+  };
+  const handlePicnicClickLeft = () => {
+    if (picnicIndex === 0) return setPicnicIndex(nPicnics - 1);
+    setPicnicIndex(picnicIndex - 1);
+  };
 
   // Product carousel
   const [showBoth, setShowBoth] = useState(true);
@@ -76,7 +90,15 @@ function ProductPage() {
           </h2>
         </div>
       </div>
-      <div className="h-96 bg-slate-300">Picnic Stuff Here</div>
+      {/* Picnic Slider */}
+      <div style={{ background: "#F9F9F9" }} className="w-full h-full">
+        <PicnicCarouselLarge
+          picnics={picnics}
+          picnicIndex={picnicIndex}
+          handleClickLeft={handlePicnicClickLeft}
+          handleClickRight={handlePicnicClickRight}
+        />
+      </div>
       <div className="bg-white w-full h-full flex flex-col">
         <div className="mx-auto flex flex-col items-center mt-8">
           <p
