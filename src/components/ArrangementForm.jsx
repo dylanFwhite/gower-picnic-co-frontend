@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Input, DateInput, Calendar, InputGroup } from "rsuite";
+import { DateInput, Calendar, InputGroup } from "rsuite";
+import Input from "rsuite/Input";
 import CalendarIcon from "@rsuite/icons/Calendar";
 import Dropdown from "rsuite/Dropdown";
 import { TbAbc } from "react-icons/tb";
@@ -50,7 +51,7 @@ function ArrangementForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col m-8">
+    <div className="flex flex-col m-8">
       <h1
         style={{
           fontFamily: "Roboto",
@@ -121,7 +122,8 @@ function ArrangementForm() {
       </div>
       <button
         type="submit"
-        className="rounded h-8 w-48 bg-sandal-yellow hover:bg-amber-200 mx-auto my-4"
+        onClick={handleSubmit}
+        className="rounded h-8 w-48 bg-sandal-yellow hover:bg-amber-200 ml-20 mt-8"
       >
         <span
           style={{ fontFamily: "Roboto" }}
@@ -130,7 +132,7 @@ function ArrangementForm() {
           Continue
         </span>
       </button>
-    </form>
+    </div>
   );
 }
 

@@ -79,7 +79,15 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex flex-col m-8">
+      <h1
+        style={{
+          fontFamily: "Roboto",
+        }}
+        className="text-2xl font-light text-sandal-yellow mb-8 tracking-wider"
+      >
+        PAYMENT DETAILS
+      </h1>
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">

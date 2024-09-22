@@ -1,6 +1,9 @@
 import axios from "axios";
 import useCustomer from "../customHooks/useCustomer";
 import { useNavigate } from "react-router-dom";
+import Input from "rsuite/Input";
+
+import CheckoutLabel from "./CheckoutLabel";
 
 export default function CustomerForm() {
   const customer = useCustomer();
@@ -43,53 +46,63 @@ export default function CustomerForm() {
   // Correctly populating all fields
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="first-name">First Name</label>
-        <input
-          onChange={handleFirstNameChange}
-          type="text"
-          name="first-name"
-          id="first-name"
+    <form onSubmit={handleSubmit} className="flex flex-col m-8">
+      <h1
+        style={{
+          fontFamily: "Roboto",
+        }}
+        className="text-2xl font-light text-sandal-yellow mb-2 tracking-wider"
+      >
+        CUSTOMER DETAILS
+      </h1>
+      <div className="flex flex-col mt-4">
+        <CheckoutLabel>First Name</CheckoutLabel>
+        <Input
+          className="max-w-xs"
           value={customer.firstName}
+          onChange={(str, e) => handleFirstNameChange(e)}
           required
         />
       </div>
-      <div>
-        <label htmlFor="last-name">Last Name</label>
-        <input
-          onChange={handleLastNameChange}
-          type="text"
-          name="last-name"
-          id="last-name"
+      <div className="flex flex-col mt-4">
+        <CheckoutLabel>Last Name</CheckoutLabel>
+        <Input
+          className="max-w-xs"
           value={customer.lastName}
+          onChange={(str, e) => handleLastNameChange(e)}
           required
         />
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          onChange={handleEmailChange}
-          type="email"
-          name="email"
-          id="email"
+      <div className="flex flex-col mt-4">
+        <CheckoutLabel>Email</CheckoutLabel>
+        <Input
+          className="max-w-xs"
           value={customer.email}
+          type="email"
+          onChange={(str, e) => handleEmailChange(e)}
           required
         />
       </div>
-      <div>
-        <label htmlFor="phone">Phone</label>
-        <input
-          onChange={handlePhoneChange}
-          type="tel"
-          name="phone"
-          id="phone"
+      <div className="flex flex-col mt-4">
+        <CheckoutLabel>Phone</CheckoutLabel>
+        <Input
+          className="max-w-xs"
           value={customer.phone}
+          type="tel"
+          onChange={(str, e) => handlePhoneChange(e)}
           required
         />
       </div>
-      <button type="submit" style={{ background: "#F6C157" }}>
-        Make Payment
+      <button
+        type="submit"
+        className="rounded h-8 w-48 bg-sandal-yellow hover:bg-amber-200 mt-8"
+      >
+        <span
+          style={{ fontFamily: "Roboto" }}
+          className="text-white font-light text-md"
+        >
+          Continue
+        </span>
       </button>
     </form>
   );

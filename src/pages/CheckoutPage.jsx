@@ -55,7 +55,7 @@ export default function CheckoutPage() {
     theme: "stripe",
     variables: {
       colorPrimary: "#f6c157",
-      colorText: "#5c5c5c",
+      colorText: "#A0A0A0",
     },
   };
   const options = {
