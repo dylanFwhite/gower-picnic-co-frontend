@@ -4,10 +4,22 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
+import useBasket from "../customHooks/useBasket";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+  const basket = useBasket();
+
+  let total = basket.basketItems
+    .map((item) => item.price)
+    .reduce((acc, curr) => acc + curr);
+  total = new Intl.NumberFormat("en-UK", {
+    style: "currency",
+    currency: "GBP",
+  }).format(total);
+
+  const paymentLabel = "Pay Now (" + total + ")";
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -91,7 +103,11 @@ export default function CheckoutForm() {
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+          {isLoading ? (
+            <div className="spinner" id="spinner"></div>
+          ) : (
+            paymentLabel
+          )}
         </span>
       </button>
       {message && <div id="payment-message">{message}</div>}

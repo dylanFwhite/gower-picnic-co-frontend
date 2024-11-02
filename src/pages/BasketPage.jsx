@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import useBasket from "../customHooks/useBasket";
-import BasketListSmall from "../components/BasketListSmall";
+import CheckoutList from "../components/CheckoutList";
+import CheckoutTotal from "../components/CheckoutTotal";
 
 export default function BasketPage() {
   const basket = useBasket();
@@ -23,8 +24,9 @@ export default function BasketPage() {
           >
             YOUR BASKET
           </h1>
-          <hr className="border-sandal-yellow w-24" />
-          <BasketListSmall
+          <CheckoutTotal basketItems={basket.basketItems} />
+          <hr className="mx-6" />
+          <CheckoutList
             basket={basket}
             removeBasketItem={basket.removeBasketItem}
           />
