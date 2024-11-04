@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 function ProductCarouselItem({ product }) {
   return (
-    <div className="flex flex-col items-center h-700">
+    <div className="flex flex-col items-center h-600">
       <img
         src="/src/assets/img/placeholder-picnic-image.png"
         alt="picnic-image"
-        className="my-4 lg:m-8 max-w-48 md:max-w-48 lg:max-w-96 rounded-lg"
+        className="my-4 lg:m-8 max-w-48 md:max-w-48 lg:max-w-72 rounded-lg"
       />
       <h2
         style={{

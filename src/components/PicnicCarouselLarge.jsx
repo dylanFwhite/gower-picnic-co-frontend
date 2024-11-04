@@ -75,7 +75,7 @@ function PicnicCarousel({
       </div>
       <div className="flex flex-col ml-4">
         <div className="w-full flex flex-col lg:flex-row lg:place-content-center">
-          <div className="flex flex-col min-w-4 justify-center text-center lg:text-left lg:items-start space-y-5 lg:space-y-20">
+          <div className="flex flex-col min-w-4 justify-center text-center lg:text-left lg:items-start space-y-5 lg:space-y-10">
             <h1
               style={{
                 fontFamily: "Roboto",
@@ -127,7 +127,7 @@ function PicnicCarousel({
           <img
             src="/src/assets/img/placeholder-picnic-image.png"
             alt="picnic-image"
-            className="mx-4 my-auto max-w-60 max-h-60 md:max-w-80 md:max-h-80 lg:max-w-full lg:max-h-600 rounded-lg"
+            className="mx-4 my-auto max-w-60 max-h-60 md:max-w-80 md:max-h-80 lg:max-w-400 lg:max-h-400 rounded-lg"
           />
         </div>
         <div className="flex justify-center m-4 space-x-2">{pearlChain}</div>

@@ -3,6 +3,7 @@ import { getProducts } from "../api/getProducts";
 
 import ProductCarousel from "../components/ProductCarousel";
 import PicnicCarouselLarge from "../components/PicnicCarouselLarge";
+import ShadowCarouselItem from "../components/ShadowCarouselItem";
 
 function ProductPage() {
   // Product Loader
@@ -47,7 +48,6 @@ function ProductPage() {
     if (productIndex[0] === nProducts - 1) {
       return setProductIndex([0, productIndex[1] + 1]);
     }
-    console.log([productIndex[0] + 1, productIndex[1] + 1]);
     setProductIndex([productIndex[0] + 1, productIndex[1] + 1]);
   };
   const handleProductClickLeft = () => {
@@ -71,7 +71,7 @@ function ProductPage() {
       {/* Header image */}
       <div>
         <img
-          className="w-full max-h-700"
+          className="w-full min-h-700 max-h-700"
           src="src/assets/img/picnic-image-header.jpg"
           alt="Image of Picnic"
         />
@@ -92,12 +92,16 @@ function ProductPage() {
       </div>
       {/* Picnic Slider */}
       <div style={{ background: "#F9F9F9" }} className="w-full h-full">
-        <PicnicCarouselLarge
-          picnics={picnics}
-          picnicIndex={picnicIndex}
-          handleClickLeft={handlePicnicClickLeft}
-          handleClickRight={handlePicnicClickRight}
-        />
+        {picnics.length !== 0 ? (
+          <PicnicCarouselLarge
+            picnics={picnics}
+            picnicIndex={picnicIndex}
+            handleClickLeft={handlePicnicClickLeft}
+            handleClickRight={handlePicnicClickRight}
+          />
+        ) : (
+          <ShadowCarouselItem />
+        )}
       </div>
       <div className="bg-white w-full h-full flex flex-col">
         <div className="mx-auto flex flex-col items-center mt-8">

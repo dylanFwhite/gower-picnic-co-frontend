@@ -41,7 +41,6 @@ function HomePage() {
     if (productIndex[0] === nProducts - 1) {
       return setProductIndex([0, productIndex[1] + 1]);
     }
-    console.log([productIndex[0] + 1, productIndex[1] + 1]);
     setProductIndex([productIndex[0] + 1, productIndex[1] + 1]);
   };
   const handleProductClickLeft = () => {
