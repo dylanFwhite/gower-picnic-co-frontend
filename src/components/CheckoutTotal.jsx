@@ -1,7 +1,10 @@
 function CheckoutTotal({ basketItems }) {
-  const total = basketItems
-    .map((item) => item.price)
-    .reduce((acc, curr) => acc + curr);
+  let total = 0;
+  if (basketItems.length > 0) {
+    total = basketItems
+      .map((item) => item.price)
+      .reduce((acc, curr) => acc + curr);
+  }
   return (
     <div className="flex mb-6">
       <span

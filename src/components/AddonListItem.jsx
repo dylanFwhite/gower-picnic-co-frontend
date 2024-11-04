@@ -16,7 +16,8 @@ const AddonListItem = ({ basket, item }) => {
     <div className="flex flex-row p-2">
       <span
         style={{ fontFamily: "Roboto", color: "#5C5C5C" }}
-        className="font-normal"
+        className="font-normal
+        "
       >
         {item.label}:
         {new Intl.NumberFormat("en-UK", {
