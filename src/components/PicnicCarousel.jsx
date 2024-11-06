@@ -49,7 +49,7 @@ function PicnicCarousel({
             </p>
             <button className=" h-8 w-32 bg-sandal-yellow hover:bg-amber-200">
               <Link
-                to={`products?id=${
+                to={`picnics?id=${
                   picnics[picnicIndex] && picnics[picnicIndex]._id
                 }`}
               >

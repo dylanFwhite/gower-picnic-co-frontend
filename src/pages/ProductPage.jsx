@@ -86,7 +86,7 @@ function ProductPage() {
             style={{ fontFamily: "Roboto" }}
             className=" text-white Roboto text-sm md:text-4xl lg:text-6xl font-normal uppercase tracking-wider"
           >
-            products
+            picnics
           </h2>
         </div>
       </div>

@@ -50,12 +50,12 @@ export default function Header() {
             home
           </span>
         </Link>
-        <Link to="/products">
+        <Link to="/picnics">
           <span
             style={{ fontFamily: "Roboto" }}
             className="text-white uppercase font-thin text-sm px-4 md:text-2xl md:px-8"
           >
-            products
+            picnics
           </span>
         </Link>
         <Link to="/shop">
