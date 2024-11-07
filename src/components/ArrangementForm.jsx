@@ -18,6 +18,7 @@ function ArrangementForm() {
   const [showCalendar, setShowCalendar] = useState(false);
 
   const [date, setDate] = useState(null);
+  const [dateError, setDateError] = useState(false);
   const [note, setNote] = useState("");
   const [addOns, setAddOns] = useState([]);
 
@@ -45,6 +46,10 @@ function ArrangementForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!date) {
+      setDateError(true);
+      return;
+    }
     basket.setOrderDate(date);
     basket.setOrderComment(note);
     navigate("/checkout/customer");
@@ -60,12 +65,12 @@ function ArrangementForm() {
       >
         PICNIC ARRANGEMENTS
       </h1>
-      <div className="flex flex-row py-4">
+      <div className="flex flex-row py-4 h-28 pb-6">
         <img src="/src/assets/img/calendar-icon.svg" className="mr-4 w-14" />
         <div className="flex flex-col">
           <CheckoutLabel>Date</CheckoutLabel>
           <InputGroup
-            className="z-40"
+            className={`z-40 ${!dateError ? "" : "border-2 border-rose-400"}`}
             onClick={() => setShowCalendar(!showCalendar)}
           >
             <DateInput value={date} className="w-48" />
@@ -77,12 +82,20 @@ function ArrangementForm() {
                 <Calendar
                   compact
                   bordered
-                  onSelect={(date) => setDate(date)}
+                  onSelect={(date) => {
+                    setDateError(false);
+                    setDate(date);
+                  }}
                   cellClassName={(date) => cellStyle(date)}
                 />
               </div>
             )}
           </InputGroup>
+          {!dateError ? (
+            <></>
+          ) : (
+            <p className="text-sm text-rose-600">This field is required</p>
+          )}
         </div>
       </div>
       <div className="flex flex-row py-4">
