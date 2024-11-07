@@ -1,6 +1,7 @@
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 import ProductCarouselItem from "./ProductCarouselItem";
+import SkeletonProductCarouselItem from "./SkeletonProductCarouselItem";
 
 function ProductCarousel({
   products,
@@ -16,8 +17,19 @@ function ProductCarousel({
           <BsChevronLeft className="h-8 w-8 text-sandal-yellow hover:text-amber-200" />
         </button>
       </div>
-      <ProductCarouselItem product={products[productIndex[0]]} />
-      {showBoth && <ProductCarouselItem product={products[productIndex[1]]} />}
+      {products.length === 0 ? (
+        <>
+          <SkeletonProductCarouselItem />
+          {showBoth && <SkeletonProductCarouselItem />}
+        </>
+      ) : (
+        <>
+          <ProductCarouselItem product={products[productIndex[0]]} />
+          {showBoth && (
+            <ProductCarouselItem product={products[productIndex[1]]} />
+          )}
+        </>
+      )}
       <div className="content-center">
         <button onClick={handleClickRight}>
           <BsChevronRight className="h-8 w-8 text-sandal-yellow hover:text-amber-200" />

@@ -70,7 +70,7 @@ function HomePage() {
       {/* Header image */}
       <div>
         <img
-          className="w-full max-h-700"
+          className="w-full max-h-525 min-h-525"
           src="src/assets/img/bay-image-header.jpg"
           alt="Image of Three Cliffs Bay"
         />
@@ -90,7 +90,7 @@ function HomePage() {
         </div>
       </div>
       {/* About Us */}
-      <div className="bg-white m-16 flex flex-col justify-center items-center min-h-1">
+      <div className="bg-white m-16 flex flex-col justify-center items-center min-h-72">
         <h1
           style={{
             fontFamily: "Roboto",

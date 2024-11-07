@@ -1,4 +1,4 @@
-function ShadowCarouselItem() {
+function SkeletonCarouselItem() {
   return (
     <div className="animate-pulse flex h-525">
       <div className="w-7/12 h-full">
@@ -30,4 +30,4 @@ function ShadowCarouselItem() {
   );
 }
 
-export default ShadowCarouselItem;
+export default SkeletonCarouselItem;

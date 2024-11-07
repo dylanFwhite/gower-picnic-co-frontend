@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../api/getProducts";
 import useBasket from "../customHooks/useBasket";
 import ShopListItem from "../components/ShopListItem";
+import SkeletonShopListItem from "../components/SkeletonShopListItem";
 
 function ShopPage() {
   const basket = useBasket();
@@ -20,12 +21,18 @@ function ShopPage() {
     return <ShopListItem basket={basket} product={product} key={product._id} />;
   });
 
+  const emptyItemList = [
+    <SkeletonShopListItem key={1} />,
+    <SkeletonShopListItem key={2} />,
+    <SkeletonShopListItem key={3} />,
+  ];
+
   return (
     <>
       {/* Header image */}
       <div>
         <img
-          className="w-full max-h-700"
+          className="w-full max-h-525 min-h-525"
           src="src/assets/img/shop-image-header.jpg"
           alt="Image of Picnic"
         />
@@ -58,7 +65,9 @@ function ShopPage() {
         <hr className="w-24 border-sandal-yellow" />
       </div>
       {/* Hamper List */}
-      <div className="flex flex-wrap justify-center">{picnicList}</div>
+      <div className="flex flex-wrap justify-center">
+        {picnicList.length === 0 ? emptyItemList : picnicList}
+      </div>
       <div className="mx-auto flex flex-col items-center my-8">
         <h1
           style={{
@@ -72,7 +81,9 @@ function ShopPage() {
         <hr className="w-24 border-sandal-yellow" />
       </div>
       {/* Product List */}
-      <div className="flex flex-wrap justify-center">{productList}</div>
+      <div className="flex flex-wrap justify-center">
+        {productList.length === 0 ? emptyItemList : productList}
+      </div>
     </>
   );
 }

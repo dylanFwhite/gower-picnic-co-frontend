@@ -3,9 +3,9 @@ import { getProducts } from "../api/getProducts";
 
 import ProductCarousel from "../components/ProductCarousel";
 import PicnicCarouselLarge from "../components/PicnicCarouselLarge";
-import ShadowCarouselItem from "../components/ShadowCarouselItem";
+import SkeletonCarouselItem from "../components/SkeletonCarouselItem";
 
-function ProductPage() {
+function PicnicPage() {
   // Product Loader
   const [productsAll, setProductsAll] = useState([]);
   useEffect(() => {
@@ -71,7 +71,7 @@ function ProductPage() {
       {/* Header image */}
       <div>
         <img
-          className="w-full min-h-700 max-h-700"
+          className="w-full max-h-525 min-h-525"
           src="src/assets/img/picnic-image-header.jpg"
           alt="Image of Picnic"
         />
@@ -100,7 +100,7 @@ function ProductPage() {
             handleClickRight={handlePicnicClickRight}
           />
         ) : (
-          <ShadowCarouselItem />
+          <SkeletonCarouselItem />
         )}
       </div>
       <div className="bg-white w-full h-full flex flex-col">
@@ -134,4 +134,4 @@ function ProductPage() {
   );
 }
 
-export default ProductPage;
+export default PicnicPage;
