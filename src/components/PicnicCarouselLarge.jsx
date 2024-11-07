@@ -4,6 +4,8 @@ import { FaCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Calendar } from "rsuite";
 
+import { cellStyle, renderCell } from "../utils/utils";
+
 function PicnicCarousel({
   picnics,
   picnicIndex,
@@ -20,51 +22,6 @@ function PicnicCarousel({
     if (ind === picnicIndex) col = "text-xs text-gray-600";
     return <FaCircle key={ind} className={col} />;
   });
-
-  const getAvailability = (date) => {
-    const weekday = date.getDay();
-    switch (weekday) {
-      case 1:
-        return null;
-      case 2:
-        return null;
-    }
-    const day = date.getDate();
-    switch (day) {
-      case 14:
-        return "3";
-      case 15:
-        return "2";
-      case 10:
-        return "1";
-      case 5:
-        return "4";
-      default:
-        return "4+";
-    }
-  };
-
-  const renderCell = (date) => {
-    const count = getAvailability(date);
-    if (!count) return;
-    return (
-      <div className="flex items-center justify-center rounded-full h-5 w-5 bg-sandal-yellow text-white text-xs">
-        {count || ""}
-      </div>
-    );
-  };
-
-  const cellStyle = (date) => {
-    const weekday = date.getDay();
-    switch (weekday) {
-      case 1:
-        return "bg-gray";
-      case 2:
-        return "bg-gray";
-      default:
-        return undefined;
-    }
-  };
 
   return (
     <div className="container mx-auto h-full flex flex-row justify-center content-center">

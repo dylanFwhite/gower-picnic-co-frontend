@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 import CheckoutLabel from "./CheckoutLabel";
 import AddonList from "./AddonList";
+import { renderCell } from "../utils/utils";
 
 function ArrangementForm() {
   const navigate = useNavigate();
@@ -86,6 +87,7 @@ function ArrangementForm() {
                     setDateError(false);
                     setDate(date);
                   }}
+                  renderCell={renderCell}
                   cellClassName={(date) => cellStyle(date)}
                 />
               </div>
