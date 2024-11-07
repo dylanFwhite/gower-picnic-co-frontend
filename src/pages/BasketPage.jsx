@@ -6,7 +6,7 @@ import CheckoutTotal from "../components/CheckoutTotal";
 export default function BasketPage() {
   const basket = useBasket();
   return (
-    <div>
+    <div style={{ minHeight: "80vh" }}>
       <div className="h-12 md:h-20 bg-slate-400"></div>
       <div className="flex flex-row">
         <div className="w-2/3">

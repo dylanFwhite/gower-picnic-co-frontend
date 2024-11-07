@@ -39,7 +39,7 @@ export default function Header() {
 
   return (
     <div
-      className={`z-40 flex fixed ${bg} h-12 md:h-20 text-white top-0 left-0 right-0`}
+      className={`z-50 flex fixed ${bg} h-12 md:h-20 text-white top-0 left-0 right-0`}
     >
       <div className="mx-auto flex flex-row items-center">
         <Link to="/">

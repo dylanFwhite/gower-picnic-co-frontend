@@ -81,7 +81,7 @@ function ShopPage() {
         <hr className="w-24 border-sandal-yellow" />
       </div>
       {/* Product List */}
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center mb-16">
         {productList.length === 0 ? emptyItemList : productList}
       </div>
     </>
