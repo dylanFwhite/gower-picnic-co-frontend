@@ -69,12 +69,11 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url:
-          "http://localhost:5173/checkout/payment/confirmation?payment_redirect=true",
+        return_url: `${
+          import.meta.env.VITE_FRONTEND_URL
+        }/checkout/payment/confirmation?payment_redirect=true`,
       },
     });
-
-    console.log(error);
 
     // Only will get reached if there is an error at the previous step,
     // otherwise user will be redirected to return url

@@ -8,7 +8,6 @@ function PicnicCarousel({
   handleClickLeft,
   handleClickRight,
 }) {
-  console.log(picnics);
   const pearlChain = picnics.map((el, ind) => {
     let col = "text-xs text-gray-300";
     if (ind === picnicIndex) col = "text-xs text-gray-600";

@@ -15,7 +15,7 @@ export default function Header() {
   const bg = bgTrans ? "bg-transparent" : "bg-slate-400";
 
   const handleScroll = () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 0) {
       setBgTrans(false);
     } else {
       setBgTrans(true);
