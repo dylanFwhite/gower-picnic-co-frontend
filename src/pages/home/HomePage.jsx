@@ -162,9 +162,6 @@ function HomePage() {
           handleClickRight={handleProductClickRight}
         />
       </div>
-      <div className="bg-sandal-yellow w-full h-24 flex flex-col">
-        <h1 className="mx-auto my-4 text-white">CONTACT US</h1>
-      </div>
     </>
   );
 }
