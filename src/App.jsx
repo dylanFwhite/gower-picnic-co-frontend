@@ -23,11 +23,13 @@ import "rsuite/Dropdown/styles/index.css";
 import CheckoutForm from "./components/CheckoutForm";
 import CustomerForm from "./components/CustomerForm";
 import ArrangementForm from "./components/ArrangementForm";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
