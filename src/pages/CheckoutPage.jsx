@@ -64,12 +64,12 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div>
+    <>
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
           <Outlet />
         </Elements>
       )}
-    </div>
+    </>
   );
 }

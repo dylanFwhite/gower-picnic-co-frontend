@@ -12,7 +12,7 @@ function CheckoutList({ basket, removeBasketItem }) {
           No Items in the basket
         </p>
         <button className="rounded h-8 w-32 mt-4 mx-auto bg-sandal-yellow hover:bg-amber-200">
-          <Link to="/shop">
+          <Link to="/shop" className="w-full h-full">
             <span
               style={{ fontFamily: "Roboto" }}
               className="text-white font-light text-md"

@@ -27,11 +27,16 @@ function BasketProvider({ children }) {
     setBasketItems(basketItems.filter((item, index) => index !== ind));
   };
 
+  const clearBasketItems = () => {
+    setBasketItems([]);
+  };
+
   const basket = {
     basketItems,
     addBasketItem,
     addBasketItems,
     removeBasketItem,
+    clearBasketItems,
     orderDate,
     setOrderDate,
     orderComment,
