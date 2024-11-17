@@ -14,3 +14,8 @@ export async function getAddOns() {
   const res = await axios.get(`/api/v1/products/add-on`);
   return await res.data.data;
 }
+
+export async function getAvailability(type) {
+  const res = await axios.get(`/api/v1/products/availability/${type}`);
+  return await res.data.data;
+}

@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 import CheckoutLabel from "./CheckoutLabel";
 import AddonList from "./AddonList";
-import { renderCell } from "../utils/utils";
 
 function ArrangementForm() {
   const navigate = useNavigate();
@@ -72,10 +71,9 @@ function ArrangementForm() {
           <CheckoutLabel>Date</CheckoutLabel>
           <InputGroup
             className={`z-40 ${!dateError ? "" : "border-2 border-rose-400"}`}
-            onClick={() => setShowCalendar(!showCalendar)}
           >
             <DateInput value={date} className="w-48" />
-            <InputGroup.Addon>
+            <InputGroup.Addon onClick={() => setShowCalendar(!showCalendar)}>
               <CalendarIcon />
             </InputGroup.Addon>
             {showCalendar && (
@@ -84,10 +82,11 @@ function ArrangementForm() {
                   compact
                   bordered
                   onSelect={(date) => {
+                    // TODO: Only Update the following if the selected value
+                    // is not in the list of unavailable dates
                     setDateError(false);
                     setDate(date);
                   }}
-                  renderCell={renderCell}
                   cellClassName={(date) => cellStyle(date)}
                 />
               </div>

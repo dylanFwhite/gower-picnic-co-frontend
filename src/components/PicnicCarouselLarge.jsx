@@ -4,7 +4,7 @@ import { FaCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Calendar } from "rsuite";
 
-import { cellStyle, renderCell } from "../utils/utils";
+import { getAvailability } from "../api/getProducts";
 
 function PicnicCarousel({
   picnics,
@@ -16,6 +16,8 @@ function PicnicCarousel({
   // HAS BEEN REDIRECTED
 
   const [showCalendar, setShowCalendar] = useState(false);
+  const [loadCalendar, setLoadCalendar] = useState(false);
+  const [availableCount, setAvailableCount] = useState([]);
 
   const pearlChain = picnics.map((el, ind) => {
     let col = "text-xs text-gray-300";
@@ -23,10 +25,95 @@ function PicnicCarousel({
     return <FaCircle key={ind} className={col} />;
   });
 
+  const handleAvailable = async (type) => {
+    if (showCalendar) {
+      setShowCalendar(false);
+      setLoadCalendar(false);
+      return;
+    }
+    setLoadCalendar(true);
+    const count = await getAvailability(type);
+    setAvailableCount(count);
+    setShowCalendar(true);
+    setTimeout(1000);
+    setLoadCalendar(false);
+  };
+
+  const getCount = (date, availableCount) => {
+    const weekday = date.getDay();
+    switch (weekday) {
+      case 1:
+        return null;
+      case 2:
+        return null;
+    }
+
+    const existingDates = availableCount.map((item) => Date.parse(item.date));
+    const index = existingDates.findIndex((exist) => exist === date.getTime());
+    console.log(index);
+
+    if (index < 0) return "4+";
+
+    return availableCount[index].count.toString();
+  };
+
+  const renderCell = (date) => {
+    const count = getCount(date, availableCount);
+    if (!count) return;
+    return (
+      <div className="flex items-center justify-center rounded-full h-5 w-5 bg-sandal-yellow text-white text-xs">
+        {count || ""}
+      </div>
+    );
+  };
+
+  const cellStyle = (date) => {
+    const weekday = date.getDay();
+    switch (weekday) {
+      case 1:
+        return "bg-gray";
+      case 2:
+        return "bg-gray";
+      default:
+        return undefined;
+    }
+  };
+
+  const loadingCalendar = (
+    <span>
+      <svg
+        className="animate-spin h-6 w-6 mx-auto"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="3"
+        />
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          strokeWidth="8"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        />
+      </svg>
+    </span>
+  );
+
   return (
     <div className="container mx-auto h-full flex flex-row justify-center content-center">
       <div className="content-center">
-        <button onClick={handleClickLeft}>
+        <button
+          onClick={() => {
+            setShowCalendar(false);
+            handleClickLeft();
+          }}
+        >
           <BsChevronLeft className="h-8 w-8 text-sandal-yellow hover:text-amber-200" />
         </button>
       </div>
@@ -59,14 +146,14 @@ function PicnicCarousel({
                 </Link>
               </button>
               <button
-                onClick={() => setShowCalendar(!showCalendar)}
+                onClick={() => handleAvailable(picnics[picnicIndex].type)}
                 className="h-8 w-32 border ml-8 border-sandal-yellow bg-none hover:bg-amber-200 mt-auto"
               >
                 <span
                   style={{ fontFamily: "Roboto", color: "#6F6D6D" }}
                   className="text-white font-light text-md"
                 >
-                  Check Availability
+                  {loadCalendar ? loadingCalendar : `Check Availability`}
                 </span>
               </button>
               {showCalendar && (
@@ -90,7 +177,12 @@ function PicnicCarousel({
         <div className="flex justify-center m-4 space-x-2">{pearlChain}</div>
       </div>
       <div className="content-center">
-        <button onClick={handleClickRight}>
+        <button
+          onClick={() => {
+            setShowCalendar(false);
+            handleClickRight();
+          }}
+        >
           <BsChevronRight className="h-8 w-8 text-sandal-yellow hover:text-amber-200" />
         </button>
       </div>
