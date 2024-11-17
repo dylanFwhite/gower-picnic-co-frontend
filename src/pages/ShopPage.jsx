@@ -12,7 +12,7 @@ function ShopPage() {
   useEffect(() => {
     getProducts().then((res) => setProductsAll(res));
   }, []);
-  const picnics = productsAll.filter((prod) => prod.type === "picnic");
+  const picnics = productsAll.filter((prod) => prod.type.includes("picnic"));
   const picnicList = picnics.map((picnic) => {
     return <ShopListItem basket={basket} product={picnic} key={picnic._id} />;
   });

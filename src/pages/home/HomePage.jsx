@@ -8,7 +8,9 @@ function HomePage() {
   const productsAll = useLoaderData();
 
   // Picnic carousel
-  const picnics = productsAll.filter((product) => product.type === "picnic");
+  const picnics = productsAll.filter((product) =>
+    product.type.includes("picnic")
+  );
   const nPicnics = picnics.length;
 
   const [picnicIndex, setPicnicIndex] = useState(0);

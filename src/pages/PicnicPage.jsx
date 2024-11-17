@@ -18,7 +18,7 @@ function PicnicPage() {
 
   // Picnic carousel
   const [picnicIndex, setPicnicIndex] = useState(0);
-  const picnics = productsAll.filter((prod) => prod.type === "picnic");
+  const picnics = productsAll.filter((prod) => prod.type.includes("picnic"));
   const nPicnics = picnics.length;
 
   const handlePicnicClickRight = () => {
