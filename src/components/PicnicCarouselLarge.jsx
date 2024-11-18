@@ -40,6 +40,7 @@ function PicnicCarousel({
   };
 
   const getCount = (date, availableCount) => {
+    if (date.getTime() <= new Date().getTime()) return null;
     const weekday = date.getDay();
     switch (weekday) {
       case 1:
@@ -50,7 +51,6 @@ function PicnicCarousel({
 
     const existingDates = availableCount.map((item) => Date.parse(item.date));
     const index = existingDates.findIndex((exist) => exist === date.getTime());
-    console.log(index);
 
     if (index < 0) return "4+";
 
@@ -68,6 +68,7 @@ function PicnicCarousel({
   };
 
   const cellStyle = (date) => {
+    if (date.getTime() <= new Date().getTime()) return "bg-gray";
     const weekday = date.getDay();
     switch (weekday) {
       case 1:
