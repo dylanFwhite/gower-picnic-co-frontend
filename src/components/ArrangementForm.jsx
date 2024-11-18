@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DateInput, Calendar, InputGroup } from "rsuite";
 import Input from "rsuite/Input";
 import CalendarIcon from "@rsuite/icons/Calendar";
@@ -7,6 +7,7 @@ import { TbAbc } from "react-icons/tb";
 import { getAddOns } from "../api/getProducts";
 import useBasket from "../customHooks/useBasket";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import CheckoutLabel from "./CheckoutLabel";
 import AddonList from "./AddonList";
@@ -17,10 +18,30 @@ function ArrangementForm() {
   const basket = useBasket();
   const [showCalendar, setShowCalendar] = useState(false);
 
+  const [unavailableDates, setUnavailableDates] = useState([]);
   const [date, setDate] = useState(null);
   const [dateError, setDateError] = useState(false);
   const [note, setNote] = useState("");
   const [addOns, setAddOns] = useState([]);
+
+  useEffect(() => {
+    const luxuryPicnicCount = basket.basketItems.filter(
+      (item) => item.type === "luxury-picnic"
+    ).length;
+    const picnicCount = basket.basketItems.filter(
+      (item) => item.type === "picnic"
+    ).length;
+
+    axios
+      .post("/api/v1/products/availability", {
+        luxuryPicnic: luxuryPicnicCount,
+        picnic: picnicCount,
+      })
+      .then((res) => {
+        const unavailableDates = res.data.data.map((date) => Date.parse(date));
+        setUnavailableDates(unavailableDates);
+      });
+  }, [basket.basketItems]);
 
   const getAdditions = () => {
     getAddOns().then((addOns) => {
@@ -33,6 +54,8 @@ function ArrangementForm() {
   };
 
   const cellStyle = (date) => {
+    if (date.getTime() <= new Date().getTime()) return "bg-gray";
+    if (unavailableDates.includes(date.getTime())) return "bg-gray";
     const weekday = date.getDay();
     switch (weekday) {
       case 1:
@@ -82,10 +105,13 @@ function ArrangementForm() {
                   compact
                   bordered
                   onSelect={(date) => {
-                    // TODO: Only Update the following if the selected value
-                    // is not in the list of unavailable dates
+                    if (date.getTime() <= new Date().getTime()) return;
+                    if (unavailableDates.includes(date.getTime())) return;
+                    const weekday = date.getDay();
+                    if (weekday === 1 || weekday === 2) return;
                     setDateError(false);
                     setDate(date);
+                    setShowCalendar(false);
                   }}
                   cellClassName={(date) => cellStyle(date)}
                 />
