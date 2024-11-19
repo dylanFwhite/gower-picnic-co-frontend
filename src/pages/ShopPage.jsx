@@ -33,7 +33,7 @@ function ShopPage() {
       <div>
         <img
           className="w-full max-h-525 min-h-525"
-          src="src/assets/img/shop-image-header.jpg"
+          src="src/assets/img/point-image-header.jpg"
           alt="Image of Picnic"
         />
         <div className="absolute top-16 left-3 md:top-36 lg:top-36 xl:top-52">
