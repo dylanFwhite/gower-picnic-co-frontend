@@ -53,7 +53,7 @@ function Footer() {
         rebecca@gower-picnic-company.co.uk
       </a>
 
-      <h3 className="text-sm text-slate-50 font-normal mb-2 tracking-wider mx-auto my-4">
+      <h3 className="text-sm text-slate-50 font-normal mb-2 tracking-wider mx-auto my-4 text-center">
         Copyright © {new Date().getFullYear()} The Gower Picnic Company - All
         Rights Reserved.
       </h3>

@@ -70,13 +70,13 @@ function HomePage() {
   return (
     <>
       {/* Header image */}
-      <div>
+      <div className="bg-gray-400">
         <img
-          className="w-full max-h-525 min-h-525"
+          className="w-full max-h-525 min-h-525 object-cover opacity-80"
           src="src/assets/img/bay-image-header.jpg"
           alt="Image of Three Cliffs Bay"
         />
-        <div className="absolute top-16 left-3 md:top-36 lg:top-36 xl:top-52">
+        <div className="absolute top-32 left-3 md:top-36 lg:top-36 xl:top-52">
           <h1
             style={{ fontFamily: "Roboto" }}
             className=" text-white Roboto text-xl md:text-4xl lg:text-6xl font-normal uppercase"

@@ -59,7 +59,7 @@ function PicnicPage() {
   };
 
   const handleResize = () => {
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 650) {
       setShowBoth(false);
     } else {
       setShowBoth(true);
@@ -69,13 +69,13 @@ function PicnicPage() {
   return (
     <>
       {/* Header image */}
-      <div>
+      <div className="bg-gray-400">
         <img
-          className="w-full max-h-525 min-h-525"
+          className="w-full max-h-525 min-h-525 object-cover opacity-80"
           src="src/assets/img/beach-image-header.jpg"
           alt="Image of Picnic"
         />
-        <div className="absolute top-16 left-3 md:top-36 lg:top-36 xl:top-52">
+        <div className="absolute top-28 left-3 md:top-36 lg:top-36 xl:top-52">
           <h1
             style={{ fontFamily: "Roboto" }}
             className=" text-white Roboto text-xl md:text-2xl lg:text-3xl font-light"
