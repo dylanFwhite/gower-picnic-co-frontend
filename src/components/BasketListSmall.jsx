@@ -44,13 +44,13 @@ function BasketListSmall({ basket, removeBasketItem, handleClickCheckout }) {
         className="rounded h-8 w-32 bg-sandal-yellow hover:bg-amber-200 mx-auto my-4"
         onClick={handleClickCheckout}
       >
-        <Link to="/checkout">
-          <span
+        <Link to="/checkout" className="w-32 h-8">
+          <p
             style={{ fontFamily: "Roboto" }}
             className="text-white font-light text-md"
           >
             Checkout
-          </span>
+          </p>
         </Link>
       </button>
     </div>
