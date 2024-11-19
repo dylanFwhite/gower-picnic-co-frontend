@@ -66,7 +66,7 @@ const PaymentStatus = () => {
   };
 
   const successPage = (
-    <div className="h-full flex flex-col items-center justify-center">
+    <div className="h-full flex flex-col items-center justify-center mt-2">
       <GoCheckCircle className="h-14 w-14 text-emerald-200  mb-6" />
       <h1
         style={{

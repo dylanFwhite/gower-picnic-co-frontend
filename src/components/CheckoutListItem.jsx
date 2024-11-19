@@ -2,7 +2,7 @@ import { RiCloseLargeFill } from "react-icons/ri";
 
 function CheckoutListItem({ product, handleClick }) {
   return (
-    <div className="p-2 flex flex-row min-w-80">
+    <div className="p-2 flex flex-row min-w-60">
       <img
         src="/src/assets/img/placeholder-picnic-image.png"
         alt="picnic-image"

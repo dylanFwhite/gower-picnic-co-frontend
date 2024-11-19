@@ -37,9 +37,16 @@ export default function Header() {
     };
   }, []);
 
+  let total = 0;
+  if (basket.basketItems.length > 0) {
+    total = basket.basketItems
+      .map((item) => item.price)
+      .reduce((acc, curr) => acc + curr);
+  }
+
   return (
     <div
-      className={`z-50 flex fixed ${bg} h-12 md:h-20 text-white top-0 left-0 right-0`}
+      className={`z-50 flex fixed ${bg} h-12 sm:h-20 text-white top-0 left-0 right-0`}
     >
       <div className="mx-auto flex flex-row items-center">
         <Link to="/">
@@ -101,7 +108,12 @@ export default function Header() {
                   }}
                   className="text-xl font-normal tracking-wider"
                 >
-                  BASKET
+                  BASKET{" ("}
+                  {new Intl.NumberFormat("en-UK", {
+                    style: "currency",
+                    currency: "GBP",
+                  }).format(total)}
+                  {")"}
                 </h1>
               </div>
               <BasketListSmall

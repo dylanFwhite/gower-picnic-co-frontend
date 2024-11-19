@@ -100,7 +100,7 @@ function ArrangementForm() {
               <CalendarIcon />
             </InputGroup.Addon>
             {showCalendar && (
-              <div className="bg-white absolute top-8 shadow-lg w-96">
+              <div className="bg-white absolute top-8 right-0 sm:left-0 shadow-lg w-80">
                 <Calendar
                   compact
                   bordered
@@ -163,7 +163,7 @@ function ArrangementForm() {
       <button
         type="submit"
         onClick={handleSubmit}
-        className="rounded h-8 w-48 bg-sandal-yellow hover:bg-amber-200 ml-20 mt-8"
+        className="rounded h-8 w-48 bg-sandal-yellow hover:bg-amber-200 mx-auto sm:ml-20 mt-8"
       >
         <span
           style={{ fontFamily: "Roboto" }}
