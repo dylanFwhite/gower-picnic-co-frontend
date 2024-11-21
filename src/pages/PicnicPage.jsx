@@ -91,7 +91,10 @@ function PicnicPage() {
         </div>
       </div>
       {/* Picnic Slider */}
-      <div style={{ background: "#F9F9F9" }} className="w-full h-full">
+      <div
+        style={{ background: "#F9F9F9" }}
+        className="flex flex-row justify-evenly min-h-600"
+      >
         {picnics.length !== 0 ? (
           <PicnicCarouselLarge
             picnics={picnics}

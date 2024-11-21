@@ -13,9 +13,14 @@ export default {
         600: "600px",
         1000: "1000px",
       },
+      maxWidth: {
+        700: "700px",
+        1000: "1000px",
+      },
       minHeight: {
         700: "700px",
         525: "525px",
+        600: "600px",
       },
       height: {
         700: "700px",

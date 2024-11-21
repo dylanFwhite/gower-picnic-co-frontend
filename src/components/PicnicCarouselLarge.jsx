@@ -107,7 +107,7 @@ function PicnicCarousel({
   );
 
   return (
-    <div className="container mx-auto h-full flex flex-row justify-center content-center">
+    <>
       <div className="content-center">
         <button
           onClick={() => {
@@ -118,24 +118,33 @@ function PicnicCarousel({
           <BsChevronLeft className="h-8 w-8 text-sandal-yellow hover:text-amber-200" />
         </button>
       </div>
-      <div className="flex flex-col ml-4">
-        <div className="w-full flex flex-col lg:flex-row lg:place-content-center">
-          <div className="flex flex-col min-w-4 justify-center text-center lg:text-left lg:items-start space-y-5 lg:space-y-10">
-            <h1
-              style={{
-                fontFamily: "Roboto",
-              }}
-              className="text-2xl font-thin text-sandal-yellow mt-8"
-            >
-              {picnics[picnicIndex] && picnics[picnicIndex].name}
-            </h1>
-            <p
-              style={{ fontFamily: "Roboto", color: "#5C5C5C" }}
-              className="font-light whitespace-pre-wrap"
-            >
-              {picnics[picnicIndex] && picnics[picnicIndex].description}
-            </p>
-            <div className="flex w-full relative">
+      <div className="container min-h-600 flex flex-row justify-evenly">
+        <div className="flex flex-col ml-4">
+          <div className="w-full flex flex-col h-5/6 lg:flex-row lg:place-content-center">
+            <div className="flex flex-col min-w-4 justify-center text-center lg:text-left lg:items-start space-y-5 lg:space-y-10">
+              <h1
+                style={{
+                  fontFamily: "Roboto",
+                }}
+                className="text-2xl font-thin text-sandal-yellow mt-8"
+              >
+                {picnics[picnicIndex] && picnics[picnicIndex].name}
+              </h1>
+              <p
+                style={{ fontFamily: "Roboto", color: "#5C5C5C" }}
+                className="font-light whitespace-pre-wrap"
+              >
+                {picnics[picnicIndex] && picnics[picnicIndex].description}
+              </p>
+            </div>
+            <img
+              src="/src/assets/img/placeholder-picnic-image.png"
+              alt="picnic-image"
+              className="mx-auto lg:mx-4 my-8 lg:my-auto max-w-60 max-h-60 md:max-w-80 md:max-h-80 lg:max-h-96 lg:max-w-96 xl:max-h-700 xl:max-w-700 2xl:max-h-700 2xl:max-w-700 rounded-lg"
+            />
+          </div>
+          <div className="flex flex-col h-1/6">
+            <div className="flex w-full relative justify-center mt-auto">
               <button className=" h-8 w-32 bg-sandal-yellow hover:bg-amber-200">
                 <Link to="/shop">
                   <span
@@ -158,7 +167,7 @@ function PicnicCarousel({
                 </span>
               </button>
               {showCalendar && (
-                <div className="bg-white absolute top-8 shadow-lg w-96">
+                <div className="bg-white absolute top-8 shadow-lg w-80 md:w-96">
                   <Calendar
                     compact
                     bordered
@@ -168,14 +177,11 @@ function PicnicCarousel({
                 </div>
               )}
             </div>
+            <div className="flex justify-center m-4 space-x-2">
+              {pearlChain}
+            </div>
           </div>
-          <img
-            src="/src/assets/img/placeholder-picnic-image.png"
-            alt="picnic-image"
-            className="mx-4 my-auto max-w-60 max-h-60 md:max-w-80 md:max-h-80 lg:max-w-400 lg:max-h-400 rounded-lg"
-          />
         </div>
-        <div className="flex justify-center m-4 space-x-2">{pearlChain}</div>
       </div>
       <div className="content-center">
         <button
@@ -187,7 +193,7 @@ function PicnicCarousel({
           <BsChevronRight className="h-8 w-8 text-sandal-yellow hover:text-amber-200" />
         </button>
       </div>
-    </div>
+    </>
   );
 }
 
