@@ -24,13 +24,13 @@ function ProductCarouselItem({ product }) {
         {product && product.description}
       </p>
       <button className="h-10 w-24 border border-sandal-yellow bg-none hover:bg-amber-200 mt-auto">
-        <Link to="/shop">
-          <span
+        <Link className="h-10 w-24" to="/shop">
+          <p
             style={{ fontFamily: "Roboto", color: "#6F6D6D" }}
             className="text-white font-light text-md"
           >
             Shop Now
-          </span>
+          </p>
         </Link>
       </button>
     </div>

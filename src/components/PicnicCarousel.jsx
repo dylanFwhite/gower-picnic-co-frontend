@@ -48,16 +48,17 @@ function PicnicCarousel({
             </p>
             <button className=" h-8 w-32 bg-sandal-yellow hover:bg-amber-200">
               <Link
+                className="h-8 w-32"
                 to={`picnics?id=${
                   picnics[picnicIndex] && picnics[picnicIndex]._id
                 }`}
               >
-                <span
+                <p
                   style={{ fontFamily: "Roboto" }}
                   className="text-white font-light text-md"
                 >
                   Find Out More
-                </span>
+                </p>
               </Link>
             </button>
           </div>
