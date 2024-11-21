@@ -43,7 +43,7 @@ export default function CheckoutPage() {
       .post("/api/v1/checkout/create-payment-intent", {
         collectionDate: basket.orderDate,
         productIds: basket.basketItems.map((item) => item._id),
-        note: basket.note,
+        note: basket.orderComment,
         customer: customer.id,
         customerEmail: customer.email,
       })
