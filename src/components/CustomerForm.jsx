@@ -42,9 +42,6 @@ export default function CustomerForm() {
     customer.setPhone(event.target.value);
   };
 
-  // TODO: Implement Form validation so that user cannot submit form without
-  // Correctly populating all fields
-
   return (
     <form onSubmit={handleSubmit} className="flex flex-col m-8">
       <h1

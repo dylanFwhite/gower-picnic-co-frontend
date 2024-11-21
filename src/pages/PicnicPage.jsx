@@ -9,6 +9,7 @@ function PicnicPage() {
   // Product Loader
   const [productsAll, setProductsAll] = useState([]);
   useEffect(() => {
+    window.scrollTo(0, 0);
     getProducts().then((res) => setProductsAll(res));
 
     handleResize();

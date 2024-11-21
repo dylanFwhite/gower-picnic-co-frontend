@@ -9,6 +9,7 @@ export default function BasketPage() {
   const [showBasketBox, setShowBasketBox] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

@@ -16,6 +16,7 @@ export default function CheckoutPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     // If redirected from Stripe then do not re-initialise
     const stripeRedirect = new URLSearchParams(window.location.search).get(
       "payment_redirect"
