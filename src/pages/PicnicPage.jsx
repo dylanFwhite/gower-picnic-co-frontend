@@ -4,23 +4,45 @@ import { getProducts } from "../api/getProducts";
 import ProductCarousel from "../components/ProductCarousel";
 import PicnicCarouselLarge from "../components/PicnicCarouselLarge";
 import SkeletonCarouselItem from "../components/SkeletonCarouselItem";
+import { useSearchParams } from "react-router-dom";
 
 function PicnicPage() {
-  // Product Loader
-  const [productsAll, setProductsAll] = useState([]);
+  const [searchParams] = useSearchParams();
+  const activePicnicId = searchParams.get("id");
+
+  // Picnic carousel
+  const [picnics, setPicnics] = useState([]);
+  const [picnicIndex, setPicnicIndex] = useState(0);
+  const nPicnics = picnics.length;
+
+  // Product carousel
+  const [showBoth, setShowBoth] = useState(true);
+  const [products, setProducts] = useState([]);
+  const nProducts = products.length;
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    getProducts().then((res) => setProductsAll(res));
+
+    getProducts().then((res) => {
+      let picnics = res.filter((prod) => prod.type.includes("picnic"));
+      let products = res.filter((prod) => prod.type === "product");
+
+      const activePicnic = picnics.filter(
+        (item) => item._id === activePicnicId
+      )[0];
+      if (activePicnic) {
+        picnics = picnics.filter((item) => item._id !== activePicnicId);
+        picnics.unshift(activePicnic);
+      }
+      setPicnics(picnics);
+      setProducts(products);
+    });
 
     handleResize();
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
-  // Picnic carousel
-  const [picnicIndex, setPicnicIndex] = useState(0);
-  const picnics = productsAll.filter((prod) => prod.type.includes("picnic"));
-  const nPicnics = picnics.length;
+    return () => window.removeEventListener("resize", handleResize);
+  }, [searchParams, activePicnicId]);
 
   const handlePicnicClickRight = () => {
     if (picnicIndex === nPicnics - 1) return setPicnicIndex(0);
@@ -30,11 +52,6 @@ function PicnicPage() {
     if (picnicIndex === 0) return setPicnicIndex(nPicnics - 1);
     setPicnicIndex(picnicIndex - 1);
   };
-
-  // Product carousel
-  const [showBoth, setShowBoth] = useState(true);
-  const products = productsAll.filter((prod) => prod.type === "product");
-  const nProducts = products.length;
 
   const [productIndex, setProductIndex] = useState([0, 1]);
   if (nProducts === 1) {

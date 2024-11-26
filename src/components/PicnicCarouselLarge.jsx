@@ -12,9 +12,6 @@ function PicnicCarousel({
   handleClickLeft,
   handleClickRight,
 }) {
-  // TODO: USE URL PARAMETER TO ENSURE THE INITIAL PRODUCT IS THE ONE THAT
-  // HAS BEEN REDIRECTED
-
   const [showCalendar, setShowCalendar] = useState(false);
   const [loadCalendar, setLoadCalendar] = useState(false);
   const [availableCount, setAvailableCount] = useState([]);
