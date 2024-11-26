@@ -118,7 +118,7 @@ function PicnicCarousel({
           <BsChevronLeft className="h-8 w-8 text-sandal-yellow hover:text-amber-200" />
         </button>
       </div>
-      <div className="container min-h-600 flex flex-row justify-evenly">
+      <div className="container min-h-600 xl:min-h-800 flex flex-row justify-evenly">
         <div className="flex flex-col ml-4">
           <div className="w-full flex flex-col h-5/6 lg:flex-row lg:place-content-center">
             <div className="flex flex-col min-w-4 justify-center text-center lg:text-left lg:items-start space-y-5 lg:space-y-10">
@@ -146,13 +146,13 @@ function PicnicCarousel({
           <div className="flex flex-col h-1/6">
             <div className="flex w-full relative justify-center mt-auto">
               <button className=" h-8 w-32 bg-sandal-yellow hover:bg-amber-200">
-                <Link to="/shop">
-                  <span
+                <Link className="h-8 w-32" to="/shop">
+                  <p
                     style={{ fontFamily: "Roboto" }}
                     className="text-white font-light text-md"
                   >
                     Shop Now
-                  </span>
+                  </p>
                 </Link>
               </button>
               <button
