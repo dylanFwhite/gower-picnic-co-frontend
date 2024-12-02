@@ -24,7 +24,6 @@ export default function CustomerForm() {
       customer.setId(_id);
       navigate("../payment");
     } catch (error) {
-      // TODO: Add message that there was an issue
       console.log(error);
     }
   };
